@@ -29,13 +29,3 @@ if [ "${TAG_PREFIX}" != "latest" ]; then
   manifest_annotate "${DOCKER_REPO}:latest"
   ${DOCKER_CLI} manifest push -p "${DOCKER_REPO}:latest"
 fi
-
-echo "All images pushed successfully, cleaning up tags."
-# Obtain JWT for authorization
-JW_TOKEN=$(curl -s -H "Content-Type: application/json" \
-  -X POST -d "{\"username\": \"$PA_USER\", \"password\": \"$PA_TOKEN\"}" \
-  https://hub.docker.com/v2/users/login/ | python -c "import sys, json; print json.load(sys.stdin)['token']")
-# Clean up tags
-for i in ${ARCH_LIST}; do
-  curl -s -H "Authorization: JWT ${JW_TOKEN}" -X DELETE "https://hub.docker.com/v2/repositories/${REPO}/tags/${TAG_PREFIX}-${i}/"
-done
