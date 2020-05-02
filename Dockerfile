@@ -28,7 +28,7 @@ LABEL \
 #__CROSS_COPY qemu-${QEMU_ARCH}-static /usr/bin/
 
 RUN apk add --no-cache --virtual=build-dependencies build-base linux-headers && \
-	mkdir /usr/src && \
+    mkdir /usr/src && \
     wget -O - https://github.com/jemalloc/jemalloc/releases/download/${VERSION}/jemalloc-${VERSION}.tar.bz2 | tar -xjf - -C /usr/src && \
     cd /usr/src/jemalloc-${VERSION} && \
     ./configure --disable-cxx --disable-prof-libgcc && \
