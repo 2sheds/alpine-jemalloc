@@ -1,12 +1,6 @@
-ARG ALPINE_VER="3.20"
-ARG BASEIMAGE_ARCH="amd64"
-
-FROM ${BASEIMAGE_ARCH}/alpine:${ALPINE_VER}
+FROM alpine:3.20
 
 LABEL Description="Multiarch Alpine base image with Jemalloc library"
-
-ARG ALPINE_VER
-ARG QEMU_ARCH
 
 ARG BRANCH="none"
 ARG COMMIT="local-build"
@@ -24,8 +18,6 @@ LABEL \
   org.opencontainers.image.revision="${COMMIT}" \
   org.opencontainers.image.version="${VERSION}" \
   org.opencontainers.image.source="${VCS_URL}"
-
-#__CROSS_COPY qemu-${QEMU_ARCH}-static /usr/bin/
 
 RUN apk add --no-cache --virtual=build-dependencies build-base linux-headers && \
     mkdir /usr/src && \
