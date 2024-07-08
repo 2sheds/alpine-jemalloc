@@ -1,4 +1,4 @@
-ARG ALPINE_VER="3.12"
+ARG ALPINE_VER="3.20"
 ARG BASEIMAGE_ARCH="amd64"
 
 FROM ${BASEIMAGE_ARCH}/alpine:${ALPINE_VER}
@@ -15,7 +15,7 @@ ARG NAME="kurapov/alpine-jemalloc"
 ARG VCS_URL="https://github.com/2sheds/alpine-jemalloc"
 
 ARG MAKEFLAGS=-j4
-ARG VERSION="5.2.1"
+ARG VERSION="5.3.0"
 
 LABEL \
   org.opencontainers.image.authors="Oleg Kurapov <oleg@kurapov.com>" \
