@@ -1,4 +1,4 @@
-FROM alpine:3.22
+FROM alpine:3.23
 
 LABEL Description="Multiarch Alpine base image with Jemalloc library"
 
