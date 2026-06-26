@@ -9,7 +9,7 @@ ARG NAME="kurapov/alpine-jemalloc"
 ARG VCS_URL="https://github.com/2sheds/alpine-jemalloc"
 
 ARG MAKEFLAGS=-j4
-ARG VERSION="5.3.0"
+ARG VERSION="5.3.1"
 
 LABEL \
   org.opencontainers.image.authors="Oleg Kurapov <oleg@kurapov.com>" \
